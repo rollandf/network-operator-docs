@@ -56,16 +56,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">About the Operator</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Platform Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#system-requirements">System Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#tested-network-adapters">Tested Network Adapters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#supported-arm-based-platforms">Supported ARM Based Platforms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#component-versions">Component Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started-kubernetes.html">Getting Started with Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started-openshift.html">Getting Started with Red Hat OpenShift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="customizations/customization.html">Customization Options and CRDs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="life-cycle-managment.html">Life Cycle Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="life-cycle-management.html">Life Cycle Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced-configurations.html">Advanced Configurations</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Multi-network POD</span></p>
@@ -119,9 +114,18 @@
              
   <section id="platform-support">
 <h1>Platform Support<a class="headerlink" href="#platform-support" title="Permalink to this headline"></a></h1>
-</section>
+<div class="contents local topic" id="on-this-page">
+<p class="topic-title">On this page</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#system-requirements" id="id1">System Requirements</a></p></li>
+<li><p><a class="reference internal" href="#tested-network-adapters" id="id2">Tested Network Adapters</a></p></li>
+<li><p><a class="reference internal" href="#supported-arm-based-platforms" id="id3">Supported ARM Based Platforms</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id4">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#component-versions" id="id5">Component Versions</a></p></li>
+</ul>
+</div>
 <section id="system-requirements">
-<h1>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline"></a></h1>
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>NVIDIA RDMA-capable network adapters:</dt><dd><ul>
@@ -159,7 +163,7 @@
 </ul>
 </section>
 <section id="tested-network-adapters">
-<h1>Tested Network Adapters<a class="headerlink" href="#tested-network-adapters" title="Permalink to this headline"></a></h1>
+<h2>Tested Network Adapters<a class="headerlink" href="#tested-network-adapters" title="Permalink to this headline"></a></h2>
 <p>The following network adapters have been tested with the Network Operator:</p>
 <ul class="simple">
 <li><p>ConnectX-6 Dx</p></li>
@@ -169,7 +173,7 @@
 </ul>
 </section>
 <section id="supported-arm-based-platforms">
-<h1>Supported ARM Based Platforms<a class="headerlink" href="#supported-arm-based-platforms" title="Permalink to this headline"></a></h1>
+<h2>Supported ARM Based Platforms<a class="headerlink" href="#supported-arm-based-platforms" title="Permalink to this headline"></a></h2>
 <p>The following ARM based systems has been tested with Network Operator:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -195,7 +199,7 @@
 </table>
 </section>
 <section id="prerequisites">
-<h1>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h1>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -211,10 +215,7 @@
 <tbody>
 <tr class="row-even"><td><p>Kubernetes</p></td>
 <td><p>&gt;=1.24 and &lt;=1.27</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Helm</p></td>
 <td><p>v3.5+</p></td>
@@ -224,7 +225,7 @@
 </table>
 </section>
 <section id="component-versions">
-<h1>Component Versions<a class="headerlink" href="#component-versions" title="Permalink to this headline"></a></h1>
+<h2>Component Versions<a class="headerlink" href="#component-versions" title="Permalink to this headline"></a></h2>
 <p>The following component versions are deployed by the Network Operator:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -245,69 +246,43 @@
 </tr>
 <tr class="row-odd"><td><p>NVIDIA MLNX_OFED driver container</p></td>
 <td><p>24.01-0.3.3.1.3</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>k8s-rdma-shared-device-plugin</p></td>
 <td><p>v1.3.2</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>sriov-network-device-plugin</p></td>
 <td><p>7e7f979087286ee950bd5ebc89d8bbb6723fc625</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>containernetworking CNI plugins</p></td>
 <td><p>v1.2.0</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>whereabouts CNI</p></td>
 <td><p>v0.6.1</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>multus CNI</p></td>
 <td><p>v3.9.3</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>IPoIB CNI</p></td>
 <td><p>v1.1.0</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>IB Kubernetes</p></td>
 <td><p>v1.0.2</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>NV IPAM Plugin</p></td>
 <td><p>v0.1.1</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 </tbody>
 </table>
+</section>
 </section>
 
 
