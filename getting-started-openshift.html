@@ -54,9 +54,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">NVIDIA Network Operator</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">About the Operator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="platform-support.html">Platform Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform-support.html">Platform Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started-kubernetes.html">Getting Started with Kubernetes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started with Red Hat OpenShift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="customizations/customization.html">Customization Options and CRDs</a></li>
@@ -144,7 +143,8 @@
 </div>
 <section id="node-feature-discovery">
 <h3>Node Feature Discovery<a class="headerlink" href="#node-feature-discovery" title="Permalink to this headline"></a></h3>
-<p>To enable Node Feature Discovery, please follow the official <a class="reference external" href="https://docs.openshift.com/container-platform/latest/hardware_enablement/psap-node-feature-discovery-operator.html">guide</a>.</p>
+<p>To enable Node Feature Discovery, please follow the official <a class="reference external" href="https://docs.openshift.com/container-platform/latest/hardware_enablement/psap-node-feature-discovery-operator.html">guide</a>.
+A single instance of Node Feature Discovery is expected to be used in the cluster.</p>
 <p>An example of Node Feature Discovery configuration:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nfd.openshift.io/v1</span><span class="w"></span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NodeFeatureDiscovery</span><span class="w"></span>
@@ -202,7 +202,7 @@ Roles:              worker
 <p class="admonition-title">Warning</p>
 <p>The SR-IOV resources created will have the <cite>openshift.io</cite> prefix.</p>
 </div>
-<p>For the default SriovOperatorConfig CR to work with the MLNX_OFED container, please run this command to update the following values:</p>
+<p>For the default SriovOperatorConfig CR to work with the NVIDIA DOCA Driver container, please run this command to update the following values:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc patch sriovoperatorconfig default <span class="se">\</span>
   --type<span class="o">=</span>merge -n openshift-sriov-network-operator <span class="se">\</span>
   --patch <span class="s1">&#39;{ &quot;spec&quot;: { &quot;configDaemonNodeSelector&quot;: { &quot;network.nvidia.com/operator.mofed.wait&quot;: &quot;false&quot;, &quot;node-role.kubernetes.io/worker&quot;: &quot;&quot;, &quot;feature.node.kubernetes.io/pci-15b3.sriov.capable&quot;: &quot;true&quot; } } }&#39;</span>
@@ -253,7 +253,6 @@ metadata:
   namespace: nvidia-network-operator
 spec:
   channel: &quot;v24.4.0&quot;
-  installPlanApproval: Manual
   name: nvidia-network-operator
   source: certified-operators
   sourceNamespace: openshift-marketplace</pre>
@@ -371,7 +370,7 @@ The <cite>host-device-net.yaml`</cite> configuration file for such a deployment:
 <span class="w">  </span><span class="nt">restartPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OnFailure</span><span class="w"></span>
 <span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;rdma image&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mofed-test-ctr</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">doca-test-ctr</span><span class="w"></span>
 <span class="w">    </span><span class="nt">securityContext</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="nt">add</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&quot;IPC_LOCK&quot;</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
@@ -572,7 +571,7 @@ spec:
 
   <div role="contentinfo">
     <p>&#169; Copyright 2024, NVIDIA.
-      <span class="lastupdated">Last updated on May 30, 2024.
+      <span class="lastupdated">Last updated on Jul 15, 2024.
       </span></p>
   </div>
 
