@@ -100,25 +100,21 @@
 <div class="contents local topic" id="on-this-page">
 <p class="topic-title">On this page</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#network-operator-deployment-guide" id="id21">Network Operator Deployment Guide</a></p></li>
-<li><p><a class="reference internal" href="#prerequisites" id="id22">Prerequisites</a></p></li>
-<li><p><a class="reference internal" href="#network-operator-deployment-on-vanilla-kubernetes-cluster" id="id23">Network Operator Deployment on Vanilla Kubernetes Cluster</a></p></li>
-<li><p><a class="reference internal" href="#deployment-examples" id="id24">Deployment Examples</a></p>
+<li><p><a class="reference internal" href="#network-operator-deployment-guide" id="id22">Network Operator Deployment Guide</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id23">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#network-operator-deployment-on-vanilla-kubernetes-cluster" id="id24">Network Operator Deployment on Vanilla Kubernetes Cluster</a></p></li>
+<li><p><a class="reference internal" href="#deployment-examples" id="id25">Deployment Examples</a></p>
 <ul>
-<li><p><a class="reference internal" href="#network-operator-deployment-with-rdma-shared-device-plugin" id="id25">Network Operator Deployment with RDMA Shared Device Plugin</a></p></li>
-<li><p><a class="reference internal" href="#network-operator-deployment-with-multiple-resources-in-rdma-shared-device-plugin" id="id26">Network Operator Deployment with Multiple Resources in RDMA Shared Device Plugin</a></p></li>
-<li><p><a class="reference internal" href="#network-operator-deployment-with-a-secondary-network" id="id27">Network Operator Deployment with a Secondary Network</a></p></li>
-<li><p><a class="reference internal" href="#network-operator-deployment-with-nvidia-ipam" id="id28">Network Operator Deployment with NVIDIA-IPAM</a></p></li>
-<li><p><a class="reference internal" href="#network-operator-deployment-with-a-host-device-network" id="id29">Network Operator Deployment with a Host Device Network</a></p></li>
-<li><p><a class="reference internal" href="#network-operator-deployment-with-a-host-device-network-and-macvlan-network" id="id30">Network Operator Deployment with a Host Device Network and Macvlan Network</a></p></li>
-<li><p><a class="reference internal" href="#network-operator-deployment-with-an-ip-over-infiniband-ipoib-network" id="id31">Network Operator Deployment with an IP over InfiniBand (IPoIB) Network</a></p></li>
-<li><p><a class="reference internal" href="#network-operator-deployment-for-gpudirect-workloads" id="id32">Network Operator Deployment for GPUDirect Workloads</a></p></li>
-<li><p><a class="reference internal" href="#network-operator-deployment-in-sr-iov-legacy-mode" id="id33">Network Operator Deployment in SR-IOV Legacy Mode</a></p></li>
-<li><p><a class="reference internal" href="#sr-iov-network-operator-deployment-parallel-node-configuration-for-sr-iov" id="id34">SR-IOV Network Operator Deployment – Parallel Node Configuration for SR-IOV</a></p>
-<ul>
-<li><p><a class="reference internal" href="#upgrade-from-nvidia-network-operator-v24-1-0" id="id35">Upgrade from NVIDIA Network Operator v24.1.0</a></p></li>
-</ul>
-</li>
+<li><p><a class="reference internal" href="#network-operator-deployment-with-rdma-shared-device-plugin" id="id26">Network Operator Deployment with RDMA Shared Device Plugin</a></p></li>
+<li><p><a class="reference internal" href="#network-operator-deployment-with-multiple-resources-in-rdma-shared-device-plugin" id="id27">Network Operator Deployment with Multiple Resources in RDMA Shared Device Plugin</a></p></li>
+<li><p><a class="reference internal" href="#network-operator-deployment-with-a-secondary-network" id="id28">Network Operator Deployment with a Secondary Network</a></p></li>
+<li><p><a class="reference internal" href="#network-operator-deployment-with-nvidia-ipam" id="id29">Network Operator Deployment with NVIDIA-IPAM</a></p></li>
+<li><p><a class="reference internal" href="#network-operator-deployment-with-a-host-device-network" id="id30">Network Operator Deployment with a Host Device Network</a></p></li>
+<li><p><a class="reference internal" href="#network-operator-deployment-with-a-host-device-network-and-macvlan-network" id="id31">Network Operator Deployment with a Host Device Network and Macvlan Network</a></p></li>
+<li><p><a class="reference internal" href="#network-operator-deployment-with-an-ip-over-infiniband-ipoib-network" id="id32">Network Operator Deployment with an IP over InfiniBand (IPoIB) Network</a></p></li>
+<li><p><a class="reference internal" href="#network-operator-deployment-for-gpudirect-workloads" id="id33">Network Operator Deployment for GPUDirect Workloads</a></p></li>
+<li><p><a class="reference internal" href="#network-operator-deployment-in-sr-iov-legacy-mode" id="id34">Network Operator Deployment in SR-IOV Legacy Mode</a></p></li>
+<li><p><a class="reference internal" href="#sr-iov-network-operator-deployment-parallel-node-configuration-for-sr-iov" id="id35">SR-IOV Network Operator Deployment – Parallel Node Configuration for SR-IOV</a></p></li>
 <li><p><a class="reference internal" href="#sr-iov-network-operator-deployment-parallel-nic-configuration-for-sr-iov" id="id36">SR-IOV Network Operator Deployment – Parallel NIC Configuration for SR-IOV</a></p></li>
 <li><p><a class="reference internal" href="#sr-iov-network-operator-deployment-sr-iov-using-the-systemd-service" id="id37">SR-IOV Network Operator Deployment – SR-IOV Using the systemd Service</a></p></li>
 <li><p><a class="reference internal" href="#network-operator-deployment-with-an-sr-iov-infiniband-network" id="id38">Network Operator Deployment with an SR-IOV InfiniBand Network</a></p></li>
@@ -146,7 +142,11 @@
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#tech-preview-configure-nic-firmware-using-the-nic-configuration-operator" id="id55">[TECH PREVIEW] Configure NIC Firmware using the NIC Configuration Operator</a></p></li>
+<li><p><a class="reference internal" href="#tech-preview-configure-nic-firmware-using-the-nic-configuration-operator" id="id55">[TECH PREVIEW] Configure NIC Firmware using the NIC Configuration Operator</a></p>
+<ul>
+<li><p><a class="reference internal" href="#nic-firmware-mismatch-notification" id="id56">NIC Firmware Mismatch Notification</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
 <section id="network-operator-deployment-guide">
@@ -212,14 +212,14 @@ Deploying NFD from either NVIDIA Network Operator or NVIDIA GPU Operator will ha
 <p class="admonition-title">Warning</p>
 <p>Each Network Operator Release has a set of default version values for the various components it deploys. It is recommended that these values will not be changed. Testing and validation were performed with these values, and there is no guarantee of interoperability nor correctness when different versions are used.</p>
 </div>
-<div class="literal-block-wrapper docutils container" id="id18">
-<div class="code-block-caption"><span class="caption-text">Add NVIDIA NGC Helm repository</span><a class="headerlink" href="#id18" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Add NVIDIA NGC Helm repository</span><a class="headerlink" href="#id19" title="Permalink to this code"></a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-text">Update helm repositories</span><a class="headerlink" href="#id19" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">Update helm repositories</span><a class="headerlink" href="#id20" title="Permalink to this code"></a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm repo update
 </pre></div>
 </div>
@@ -228,12 +228,12 @@ Deploying NFD from either NVIDIA Network Operator or NVIDIA GPU Operator will ha
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> helm install network-operator nvidia/network-operator <span class="se">\</span>
    -n nvidia-network-operator <span class="se">\</span>
    --create-namespace <span class="se">\</span>
-   --version v24.10.0-rc.4 <span class="se">\</span>
+   --version v24.10.0 <span class="se">\</span>
    --wait
 </pre></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-text">View deployed resources</span><a class="headerlink" href="#id20" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">View deployed resources</span><a class="headerlink" href="#id21" title="Permalink to this code"></a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl -n nvidia-network-operator get pods
 </pre></div>
 </div>
@@ -243,13 +243,13 @@ Deploying NFD from either NVIDIA Network Operator or NVIDIA GPU Operator will ha
 <p class="admonition-title">Warning</p>
 <p>Since several parameters should be provided when creating custom resources during operator deployment, it is recommended to use a configuration file. While it is possible to override the parameters via CLI, we recommend to avoid the use of CLI arguments in favor of a configuration file.</p>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm show values nvidia/network-operator --version v24.10.0-rc.4 &gt; values.yaml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm show values nvidia/network-operator --version v24.10.0 &gt; values.yaml
 </pre></div>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> helm install network-operator nvidia/network-operator <span class="se">\</span>
    -n nvidia-network-operator <span class="se">\</span>
    --create-namespace <span class="se">\</span>
-   --version v24.10.0-rc.4 <span class="se">\</span>
+   --version v24.10.0 <span class="se">\</span>
    -f ./values.yaml <span class="se">\</span>
    --wait
 </pre></div>
@@ -312,7 +312,7 @@ Deploying NFD from either NVIDIA Network Operator or NVIDIA GPU Operator will ha
 <span class="w">     </span><span class="c1"># [map[ifNames:[ens1f0] name:rdma_shared_device_a]]</span><span class="w"></span>
 <span class="w">     </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s-rdma-shared-dev-plugin</span><span class="w"></span>
 <span class="w">     </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/mellanox</span><span class="w"></span>
-<span class="w">     </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sha-4f3eb2224b8b5f97be3f17441ddee8d41753b7d5</span><span class="w"></span>
+<span class="w">     </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.5.2</span><span class="w"></span>
 <span class="w">     </span><span class="nt">imagePullSecrets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 <span class="w">     </span><span class="c1"># The config below directly propagates to k8s-rdma-shared-device-plugin configuration.</span><span class="w"></span>
 <span class="w">     </span><span class="c1"># Replace &#39;devices&#39; with your (RDMA capable) netdevice name.</span><span class="w"></span>
@@ -382,7 +382,7 @@ Deploying NFD from either NVIDIA Network Operator or NVIDIA GPU Operator will ha
 <span class="w">     </span><span class="c1"># [map[ifNames:[ens1f0 ens1f1] name:rdma_shared_device_a] map[ifNames:[ens2f0 ens2f1] name:rdma_shared_device_b]]</span><span class="w"></span>
 <span class="w">     </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s-rdma-shared-dev-plugin</span><span class="w"></span>
 <span class="w">     </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/mellanox</span><span class="w"></span>
-<span class="w">     </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sha-4f3eb2224b8b5f97be3f17441ddee8d41753b7d5</span><span class="w"></span>
+<span class="w">     </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.5.2</span><span class="w"></span>
 <span class="w">     </span><span class="nt">imagePullSecrets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 <span class="w">     </span><span class="c1"># The config below directly propagates to k8s-rdma-shared-device-plugin configuration.</span><span class="w"></span>
 <span class="w">     </span><span class="c1"># Replace &#39;devices&#39; with your (RDMA capable) netdevice name.</span><span class="w"></span>
@@ -700,7 +700,7 @@ Deploying NFD from either NVIDIA Network Operator or NVIDIA GPU Operator will ha
 <span class="w">     </span><span class="c1"># [map[linkTypes:[ether] name:rdma_shared_device_a]]</span><span class="w"></span>
 <span class="w">     </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s-rdma-shared-dev-plugin</span><span class="w"></span>
 <span class="w">     </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/mellanox</span><span class="w"></span>
-<span class="w">     </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sha-4f3eb2224b8b5f97be3f17441ddee8d41753b7d5</span><span class="w"></span>
+<span class="w">     </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.5.2</span><span class="w"></span>
 <span class="w">     </span><span class="nt">imagePullSecrets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 <span class="w">     </span><span class="c1"># The config below directly propagates to k8s-rdma-shared-device-plugin configuration.</span><span class="w"></span>
 <span class="w">     </span><span class="c1"># Replace &#39;devices&#39; with your (RDMA capable) netdevice name.</span><span class="w"></span>
@@ -815,7 +815,7 @@ Deploying NFD from either NVIDIA Network Operator or NVIDIA GPU Operator will ha
 <span class="w">     </span><span class="c1"># [map[ifNames:[ibs1f0] name:rdma_shared_device_a]]</span><span class="w"></span>
 <span class="w">     </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s-rdma-shared-dev-plugin</span><span class="w"></span>
 <span class="w">     </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/mellanox</span><span class="w"></span>
-<span class="w">     </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sha-4f3eb2224b8b5f97be3f17441ddee8d41753b7d5</span><span class="w"></span>
+<span class="w">     </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.5.2</span><span class="w"></span>
 <span class="w">     </span><span class="nt">imagePullSecrets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 <span class="w">     </span><span class="c1"># The config below directly propagates to k8s-rdma-shared-device-plugin configuration.</span><span class="w"></span>
 <span class="w">     </span><span class="c1"># Replace &#39;devices&#39; with your (RDMA capable) netdevice name.</span><span class="w"></span>
@@ -1335,29 +1335,6 @@ whereabouts-zvhrv                               <span class="m">1</span>/1     R
 <span class="w">        </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Exists&quot;</span><span class="w"></span>
 </pre></div>
 </div>
-<section id="upgrade-from-nvidia-network-operator-v24-1-0">
-<h4>Upgrade from NVIDIA Network Operator v24.1.0<a class="headerlink" href="#upgrade-from-nvidia-network-operator-v24-1-0" title="Permalink to this headline"></a></h4>
-<p>To upgrade SR-IOV Network operator you need to create <code class="docutils literal notranslate"><span class="pre">SriovNetworkPoolConfig</span></code> CR with the number of nodes to be configured in a parallel as we did in <cite>SriovOperatorConfig`</cite> in previous releases.</p>
-<p>E.g.: old method to configure nodes in a parallel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl patch sriovoperatorconfigs.sriovnetwork.openshift.io -n nvidia-network-operator default --patch <span class="s1">&#39;{ &quot;spec&quot;: { &quot;maxParallelNodeConfiguration&quot;: 5 } }&#39;</span> --type<span class="o">=</span><span class="s1">&#39;merge&#39;</span>
-</pre></div>
-</div>
-<p>New  method to configure nodes in a parallel:</p>
-<p><code class="docutils literal notranslate"><span class="pre">sriov-network-pool-config-new.yaml</span></code></p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sriovnetwork.openshift.io/v1</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SriovNetworkPoolConfig</span><span class="w"></span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pool-1</span><span class="w"></span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nvidia-network-operator</span><span class="w"></span>
-<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">maxUnavailable</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchExpressions</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node-role.kubernetes.io/master</span><span class="w"></span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">operator</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Exists</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
 </section>
 <section id="sr-iov-network-operator-deployment-parallel-nic-configuration-for-sr-iov">
 <h3>SR-IOV Network Operator Deployment – Parallel NIC Configuration for SR-IOV<a class="headerlink" href="#sr-iov-network-operator-deployment-parallel-nic-configuration-for-sr-iov" title="Permalink to this headline"></a></h3>
@@ -2435,6 +2412,13 @@ ovs-vsctl add-port mybr bond0 -- <span class="nb">set</span> Interface bond0 <sp
 <p class="admonition-title">Warning</p>
 <p><a class="reference external" href="https://github.com/Mellanox/maintenance-operator">Maintenance Operator</a> is required to be deployed in the cluster for the NIC Configuration Operator</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>NVIDIA NIC Configuration Operator does not support FW reset flow for DPU mode. Check <a class="reference external" href="https://github.com/Mellanox/network-operator-docs/blob/main/docs/release-notes.rst">limitations</a></p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Mellanox/network-operator-docs/blob/main/docs/release-notes.rst">limitations</a></p></li>
+</ul>
 <p>First install the Network Operator with NIC Configuration Operator enabled:</p>
 <p><code class="docutils literal notranslate"><span class="pre">values.yaml</span></code>:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">nicConfigurationOperator</span><span class="p">:</span><span class="w"></span>
@@ -2523,11 +2507,6 @@ node2-101d-mt1952x03327   1m
 <span class="w">      </span><span class="nt">gpuDirectOptimized</span><span class="p">:</span><span class="w"></span>
 <span class="w">         </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 <span class="w">         </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Baremetal</span><span class="w"></span>
-<span class="w">      </span><span class="nt">rawNvConfig</span><span class="p">:</span><span class="w"></span>
-<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">THIS_IS_A_SPECIAL_NVCONFIG_PARAM</span><span class="w"></span>
-<span class="w">           </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;55&quot;</span><span class="w"></span>
-<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SOME_ADVANCED_NVCONFIG_PARAM</span><span class="w"></span>
-<span class="w">           </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -2550,6 +2529,33 @@ For more information, which FW parameter each settings corresponds to, refer to 
   type: ConfigUpdateInProgress
 </pre></div>
 </div>
+<section id="nic-firmware-mismatch-notification">
+<h3>NIC Firmware Mismatch Notification<a class="headerlink" href="#nic-firmware-mismatch-notification" title="Permalink to this headline"></a></h3>
+<p>NIC Configuration Operator updates status conditions of the NicDevice CR to set <cite>FirmwareConfigMatch</cite> condition based on a current NIC firmware:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; kubectl get nicdevice -n nic-configuration-operator cloud-dev-40-1015-mt1627x08307 -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.conditions}&#39;</span> <span class="p">|</span> yq -P
+
+- lastTransitionTime: <span class="s2">&quot;2024-09-21T08:43:10Z&quot;</span>
+  message: Device firmware <span class="s1">&#39;20.42.1000&#39;</span> matches to recommended version <span class="s1">&#39;20.42.1000&#39;</span>
+  reason: DeviceFirmwareConfigMatch
+  status: <span class="s2">&quot;True&quot;</span>
+  type: FirmwareConfigMatch
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>NIC Firmware Mismatch feature doesn’t support NVIDIA BlueField-3 NIC.</p>
+</div>
+<p><cite>FirmwareConfigMatch</cite> condition status is set to <cite>Unknown</cite> if MOFED is not installed otherwise it notifies if current NIC firmware is recommended or not recommended by MOFED. E.g.:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> &gt; kubectl get nicdevice -n nic-configuration-operator cloud-dev-40-1015-mt1627x08307 -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.conditions}&#39;</span> <span class="p">|</span> yq -P
+
+- lastTransitionTime: <span class="s2">&quot;2024-11-08T09:19:41Z&quot;</span>
+  message: Device firmware <span class="s1">&#39;20.42.1000&#39;</span> matches to recommended version <span class="s1">&#39;20.42.1000&#39;</span>
+  reason: DeviceFirmwareConfigMatch
+  status: <span class="s2">&quot;True&quot;</span>
+  type: FirmwareConfigMatch
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -2562,7 +2568,7 @@ For more information, which FW parameter each settings corresponds to, refer to 
 
   <div role="contentinfo">
     <p>&#169; Copyright 2024, NVIDIA.
-      <span class="lastupdated">Last updated on Nov 21, 2024.
+      <span class="lastupdated">Last updated on Dec 04, 2024.
       </span></p>
   </div>
 
