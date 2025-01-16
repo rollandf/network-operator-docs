@@ -60,7 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started-openshift.html">Getting Started with Red Hat OpenShift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="customizations/customization.html">Customization Options and CRDs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="life-cycle-management.html">Life Cycle Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="advanced-configurations.html">Advanced Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced/advanced.html">Advanced Configurations</a></li>
 </ul>
 
         </div>
@@ -167,7 +167,7 @@
 <td><p>Optionally deployed. May already be present in the cluster with proper configuration.</p></td>
 </tr>
 <tr class="row-odd"><td><p>NVIDIA DOCA Driver container</p></td>
-<td><p>nvcr.io/nvidia/mellanox/doca-driver:25.01-0.2.2.0-0</p></td>
+<td><p>nvcr.io/nvidia/mellanox/doca-driver:25.01-0.2.7.0-0</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>k8s-rdma-shared-device-plugin</p></td>
@@ -204,7 +204,7 @@
 </tr>
 <tr class="row-even"><td><p>NIC Feature Discovery</p></td>
 <td><p>ghcr.io/mellanox/nic-feature-discovery:v0.0.1</p></td>
-<td><p>Only one instance of NFD should be deployed.</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>DOCA Telemetry</p></td>
 <td><p>nvcr.io/nvidia/doca/doca_telemetry:1.16.5-doca2.6.0-host</p></td>
@@ -406,7 +406,7 @@
 <li><p>NVIDIA supports precompiled driver containers for the most recently released DOCA GA drivers.</p></li>
 <li><p>NVIDIA builds precompiled driver containers for <code class="docutils literal notranslate"><span class="pre">generic</span></code>, <code class="docutils literal notranslate"><span class="pre">nvidia</span></code>, <code class="docutils literal notranslate"><span class="pre">aws</span></code>, <code class="docutils literal notranslate"><span class="pre">azure</span></code>, and <code class="docutils literal notranslate"><span class="pre">oracle</span></code> kernel flavors.</p></li>
 <li><p>Precompiled driver containers are currently unsigned.</p></li>
-<li><p>If your hosts use a different kernel variant, you can create a custom precompiled driver container and host it in your own container registry. Please refer to <a class="reference internal" href="advanced-configurations.html#advanced-configurations-precompiled"><span class="std std-ref">Precompiled Container Build Instructions for DOCA Drivers</span></a> section.</p></li>
+<li><p>If your hosts use a different kernel variant, you can create a custom precompiled driver container and host it in your own container registry. Please refer to <a class="reference internal" href="advanced/doca-drivers.html#advanced-configurations-precompiled"><span class="std std-ref">Precompiled Container Build Instructions for DOCA Drivers</span></a> section.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -428,7 +428,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2025, NVIDIA.
-      <span class="lastupdated">Last updated on Jan 07, 2025.
+      <span class="lastupdated">Last updated on Jan 16, 2025.
       </span></p>
   </div>
 
