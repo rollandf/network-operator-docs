@@ -26,7 +26,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="DOCA Drivers" href="doca-drivers.html" />
+    <link rel="next" title="NVIDIA DOCA Driver Container" href="doca-drivers.html" />
     <link rel="prev" title="Advanced Configurations" href="advanced.html" />
  
 
@@ -62,7 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../life-cycle-management.html">Life Cycle Management</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="advanced.html">Advanced Configurations</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Proxy &amp; Air-gapped</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doca-drivers.html">DOCA Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doca-drivers.html">DOCA Driver Container</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced-configurations.html">Other Advanced Configurations</a></li>
 </ul>
 </li>
@@ -187,7 +187,10 @@ To allow Network Operator to work with a local registry, users can specify local
 </section>
 <section id="pulling-and-pushing-container-images-to-a-local-registry">
 <h3>Pulling and Pushing Container Images to a Local Registry<a class="headerlink" href="#pulling-and-pushing-container-images-to-a-local-registry" title="Permalink to this headline"></a></h3>
-<p>To pull the correct images from the NVIDIA registry, you can leverage the fields <code class="docutils literal notranslate"><span class="pre">repository</span></code>, <code class="docutils literal notranslate"><span class="pre">image</span></code> and <code class="docutils literal notranslate"><span class="pre">version</span></code> specified in the <code class="docutils literal notranslate"><span class="pre">values.yaml</span></code> file.</p>
+<p>To pull the correct images from the NVIDIA registry, you can leverage the fields <code class="docutils literal notranslate"><span class="pre">repository</span></code>, <code class="docutils literal notranslate"><span class="pre">image</span></code> and <code class="docutils literal notranslate"><span class="pre">version</span></code> specified in the <code class="docutils literal notranslate"><span class="pre">values.yaml</span></code> file or in the <a class="reference internal" href="../customizations/cr-full-example.html#ncp-cr-example"><span class="std std-ref">NicClusterPolicy Custom Resource Example</span></a> section.</p>
+<p>There is one caveat with regards to the DOCA driver image. The version field must be appended by the OS name and Architecture running on the worker node.</p>
+<p>For example for DOCA driver version 25.01-0.2.7.0-0, the tag for Ubuntu 24.04 with X86 architecture is “25.01-0.2.7.0-0-ubuntu24.04-amd64”.
+Available DOCA driver image tags can be found at <a class="reference external" href="https://catalog.ngc.nvidia.com/orgs/nvidia/teams/mellanox/containers/doca-driver/tags">NGC</a>.</p>
 </section>
 <section id="local-package-repository">
 <h3>Local Package Repository<a class="headerlink" href="#local-package-repository" title="Permalink to this headline"></a></h3>
@@ -326,7 +329,7 @@ To allow Network Operator to work with a local registry, users can specify local
 
   <div role="contentinfo">
     <p>&#169; Copyright 2025, NVIDIA.
-      <span class="lastupdated">Last updated on Jan 16, 2025.
+      <span class="lastupdated">Last updated on Jan 20, 2025.
       </span></p>
   </div>
 
