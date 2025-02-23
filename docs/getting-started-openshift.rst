@@ -28,7 +28,7 @@ Getting Started with Red Hat OpenShift
    :backlinks: none
 
 
-==============================================================
+===============================================================
 Network Operator Deployment on an OpenShift Container Platform
 ==============================================================
 
