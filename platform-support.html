@@ -61,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="customizations/customization.html">Customization Options and CRDs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="life-cycle-management.html">Life Cycle Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced/advanced.html">Advanced Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Legal Notices and 3rd Party Licenses</a></li>
 </ul>
 
         </div>
@@ -257,8 +258,8 @@
 <tr class="row-odd"><td><p>NVIDIA DGX/HGX B200</p></td>
 <td><p>x86</p></td>
 <td><p>NVIDIA Blackwell</p></td>
-<td><p>BlueField-3 SuperNIC (NIC mode)</p></td>
-<td><p>Ubuntu 24.04 (x86)</p></td>
+<td><p>BlueField-3 SuperNIC (NIC mode) / ConnectX-7</p></td>
+<td><p>Ubuntu 22.04 / 24.04 (x86)</p></td>
 <td><p>GA</p></td>
 </tr>
 </tbody>
@@ -269,12 +270,13 @@
 <p><strong>NVIDIA Network Operator</strong> has been validated on the following OS / platform combinations:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operating System</p></th>
@@ -282,6 +284,7 @@
 <th class="head"><p>Red Hat OpenShift</p></th>
 <th class="head"><p>Rancher RKE2</p></th>
 <th class="head"><p>Canonical MicroK8s</p></th>
+<th class="head"><p>Nutanix NKP</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
@@ -292,12 +295,14 @@
 <td><p>—</p></td>
 <td><p>1.29–1.32</p></td>
 <td><p>—</p></td>
+<td><p>—</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ubuntu 22.04 LTS</p></td>
 <td><p>1.29–1.32</p></td>
 <td><p>—</p></td>
 <td><p>—</p></td>
 <td><p>1.29–1.32</p></td>
+<td><p>2.14 (K8s v1.31.4)</p></td>
 <td><p>RT‑kernel support</p></td>
 </tr>
 <tr class="row-even"><td><p>Red Hat CoreOS</p></td>
@@ -305,10 +310,12 @@
 <td><p>4.15–4.18</p></td>
 <td><p>—</p></td>
 <td><p>—</p></td>
+<td><p>—</p></td>
 <td><p>RT kernels support</p></td>
 </tr>
 <tr class="row-odd"><td><p>Red Hat Enterprise Linux 9.4 / 9.2</p></td>
 <td><p>1.29–1.32</p></td>
+<td><p>—</p></td>
 <td><p>—</p></td>
 <td><p>—</p></td>
 <td><p>—</p></td>
@@ -319,12 +326,14 @@
 <td><p>—</p></td>
 <td><p>—</p></td>
 <td><p>—</p></td>
+<td><p>—</p></td>
 <td><p>RT‑kernel support</p></td>
 </tr>
 <tr class="row-odd"><td><p>SUSE Linux Enterprise Server 15 SP6</p></td>
 <td><p>1.29–1.32</p></td>
 <td><p>—</p></td>
 <td><p>1.29–1.32</p></td>
+<td><p>—</p></td>
 <td><p>—</p></td>
 <td><p>Kubernetes and Rancher</p></td>
 </tr>
@@ -443,7 +452,7 @@
 <td><p>NVIDIA (OSS)</p></td>
 <td><p>nvcr.io/nvidia/cloud-native</p></td>
 <td><p>network-operator</p></td>
-<td><p>v25.4.0-rc.1</p></td>
+<td><p>v25.4.0</p></td>
 <td><p>Yes</p></td>
 <td></td>
 </tr>
@@ -459,7 +468,7 @@
 <td><p>NVIDIA (EULA)</p></td>
 <td><p>nvcr.io/nvidia/mellanox</p></td>
 <td><p>doca-driver</p></td>
-<td><p>25.04-0.6.0.0-1</p></td>
+<td><p>25.04-0.6.1.0-2</p></td>
 <td><p>Yes</p></td>
 <td><p>LTS version: 24.10-0.7.0.0-0</p></td>
 </tr>
@@ -523,7 +532,7 @@
 <td><p>Community (OSS)</p></td>
 <td><p>nvcr.io/nvidia/mellanox</p></td>
 <td><p>sriov-network-operator</p></td>
-<td><p>network-operator-25.4.0-rc.1</p></td>
+<td><p>network-operator-25.4.0</p></td>
 <td><p>Yes</p></td>
 <td></td>
 </tr>
@@ -531,7 +540,7 @@
 <td><p>Community (OSS)</p></td>
 <td><p>nvcr.io/nvidia/mellanox</p></td>
 <td><p>sriov-network-operator-webhook</p></td>
-<td><p>network-operator-25.4.0-rc.1</p></td>
+<td><p>network-operator-25.4.0</p></td>
 <td><p>Yes</p></td>
 <td></td>
 </tr>
@@ -539,7 +548,7 @@
 <td><p>Community (OSS)</p></td>
 <td><p>nvcr.io/nvidia/mellanox</p></td>
 <td><p>sriov-network-operator-config-daemon</p></td>
-<td><p>network-operator-25.4.0-rc.1</p></td>
+<td><p>network-operator-25.4.0</p></td>
 <td><p>Yes</p></td>
 <td></td>
 </tr>
@@ -611,7 +620,7 @@
 <td><p>NVIDIA (OSS)</p></td>
 <td><p>ghcr.io/mellanox</p></td>
 <td><p>nic-configuration-operator</p></td>
-<td><p>v1.0.0</p></td>
+<td><p>v1.0.3</p></td>
 <td><p>No</p></td>
 <td></td>
 </tr>
@@ -619,7 +628,7 @@
 <td><p>NVIDIA (OSS)</p></td>
 <td><p>ghcr.io/mellanox</p></td>
 <td><p>nic-configuration-operator-daemon</p></td>
-<td><p>v1.0.0</p></td>
+<td><p>v1.0.3</p></td>
 <td><p>No</p></td>
 <td></td>
 </tr>
@@ -645,7 +654,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2025, NVIDIA.
-      <span class="lastupdated">Last updated on May 14, 2025.
+      <span class="lastupdated">Last updated on Jun 10, 2025.
       </span></p>
   </div>
 
