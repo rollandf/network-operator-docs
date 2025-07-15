@@ -79,7 +79,7 @@ jobs:
           if [ ! -d "${{ env.REVIEW_DIR }}" ]; then
             mkdir "${{ env.REVIEW_DIR }}"
           fi
-          mv ./generated-html/ "${{ env.PR_REVIEW_DIR }}"
+          mv ./generated-html/latest/* "${{ env.PR_REVIEW_DIR }}/"
           git add "${{ env.PR_REVIEW_DIR }}"
       # If the PR was closed, merged or not, delete review directory.
       - name: Delete HTML review directory for closed PRs
