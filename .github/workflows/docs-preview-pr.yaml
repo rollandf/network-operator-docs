@@ -52,7 +52,7 @@ jobs:
       - name: Download artifacts
         run: |
           gh run view "${WF_ID}"
-          gh run download "${WF_ID}" -n pr -n generate-html
+          gh run download "${WF_ID}" -n pr -n generated-html
           PR=$(cat ./pr/pr.txt)
           MERGED=$(cat ./pr/merged.txt)
           ACTION=$(cat ./pr/action.txt)
@@ -79,14 +79,14 @@ jobs:
           if [ ! -d "${{ env.REVIEW_DIR }}" ]; then
             mkdir "${{ env.REVIEW_DIR }}"
           fi
-          mv ./generate-html/ "${{ env.PR_REVIEW_DIR }}"
+          mv ./generated-html/ "${{ env.PR_REVIEW_DIR }}"
           git add "${{ env.PR_REVIEW_DIR }}"
       # If the PR was closed, merged or not, delete review directory.
       - name: Delete HTML review directory for closed PRs
         if: env.PR_ACTION == 'closed'
         run: |
-          if [ -d ./generate-html/ ]; then
-            rm -rf ./generate-html/ 2>/dev/null
+          if [ -d ./generated-html/ ]; then
+            rm -rf ./generated-html/ 2>/dev/null
           fi
           if [ -d "${{ env.PR_REVIEW_DIR }}" ]; then
             git rm -rf "${{ env.PR_REVIEW_DIR }}"
