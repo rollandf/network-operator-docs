@@ -11,15 +11,64 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build HTML
         run: make gen-docs
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload HTML
+        uses: actions/upload-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _build/docs/nvidia_network_operator/latest
-          keep_files: |
-            review/
+          name: html-build-artifact
+          path: _build/docs/nvidia_network_operator/latest
+          if-no-files-found: error
+          retention-days: 1
+
+  # Deploy to GitHub Pages
+  deploy:
+    needs: [build-and-deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Initialize Git configuration
+        run: |
+          git config user.name docs-publish
+          git config user.email do-not-send-@github.com
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: html-build-artifact
+
+      - name: Copy HTML files (preserving review directories)
+        run: |
+          # Remove old main documentation files but keep review directories
+          find . -maxdepth 1 -not -name '.' -not -name '..' -not -name 'review' -not -name '.git' -not -name '.nojekyll' -not -name 'index.html' -exec rm -rf {} \; 2>/dev/null || true
+          
+          # Copy new documentation files
+          cp -r * . 2>/dev/null || true
+          
+          # Add all files to git
+          git add .
+
+      - name: Check or create dot-no-jekyll file
+        run: |
+          if [ -f ".nojekyll" ]; then
+            echo "The .nojekyll file already exists."
+          else
+            touch .nojekyll
+            git add .nojekyll
+          fi
+
+      - name: Commit changes to the GitHub Pages branch
+        run: |
+          git status
+          if git commit -m 'Deploy documentation to GitHub Pages.'; then
+            git push
+          else
+            echo "Nothing changed."
+          fi
