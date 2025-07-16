@@ -72,7 +72,7 @@ jobs:
             git add .nojekyll
           fi
 
-      - name: Commit changes to the GitHub Pages branch
+      - name: Commit and push changes
         run: |
           git status
           if git commit -m 'Deploy documentation to GitHub Pages.'; then
@@ -80,3 +80,8 @@ jobs:
           else
             echo "Nothing changed."
           fi
+
+  # Clean up stale PR reviews
+  cleanup-stale-reviews:
+    needs: [deploy]
+    uses: ./.github/workflows/docs-remove-stale-reviews.yaml
