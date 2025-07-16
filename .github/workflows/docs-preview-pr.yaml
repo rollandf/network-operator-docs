@@ -113,12 +113,19 @@ jobs:
           fi
       - name: Check for existing documentation review comment
         run: |
+          # Get PR number from environment, if not set, skip this step
+          if [ -z "${{ env.PR_NO }}" ]; then
+            echo "No PR number available, skipping comment check"
+            echo "COMMENT_EXISTS=false" >> $GITHUB_ENV
+            exit 0
+          fi
+          
           result=$(gh pr view ${{ env.PR_NO }} --json comments -q 'any(.comments[].body; contains("Documentation preview"))')
           echo "COMMENT_EXISTS=${result}" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Add HTML review URL comment to a newly opened PR
-        if: env.MERGE_STATUS == 'false' && env.COMMENT_EXISTS == 'false'
+        if: env.MERGE_STATUS == 'false' && env.COMMENT_EXISTS == 'false' && env.PR_NO != ''
         env:
           URL: ${{ needs.get-gh-pages-url.outputs.url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
