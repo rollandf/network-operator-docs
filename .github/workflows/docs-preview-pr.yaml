@@ -53,9 +53,20 @@ jobs:
         run: |
           gh run view "${WF_ID}"
           gh run download "${WF_ID}" -n pr -n generated-html
-          PR=$(cat ./pr/pr.txt)
-          MERGED=$(cat ./pr/merged.txt)
-          ACTION=$(cat ./pr/action.txt)
+          
+          # Check if pr artifact exists (for merged PRs, it won't exist)
+          if [ -f "./pr/pr.txt" ]; then
+            PR=$(cat ./pr/pr.txt)
+            MERGED=$(cat ./pr/merged.txt)
+            ACTION=$(cat ./pr/action.txt)
+          else
+            # For merged PRs, we can't determine which PR was merged
+            # so we'll skip this run since we can't clean up the specific preview
+            echo "PR artifact not found - this is likely a merged PR"
+            echo "Cannot determine PR number for cleanup - skipping"
+            exit 0
+          fi
+          
           echo "PR_NO=${PR}" >> $GITHUB_ENV
           echo "MERGE_STATUS=${MERGED}" >> $GITHUB_ENV
           echo "PR_ACTION=${ACTION}" >> $GITHUB_ENV
