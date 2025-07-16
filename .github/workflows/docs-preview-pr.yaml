@@ -14,7 +14,7 @@ jobs:
   # Always determine if GitHub Pages are configured for this repo.
   get-gh-pages-url:
     if:
-      github.event.workflow_run.event == 'pull_request' &&
+      (github.event.workflow_run.event == 'pull_request' || github.event.workflow_run.event == 'push') &&
       github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     outputs:
