@@ -39,18 +39,26 @@ jobs:
           git config user.name docs-publish
           git config user.email do-not-send-@github.com
 
-      - name: Download artifacts
+      - name: Download artifacts to temp directory
         uses: actions/download-artifact@v4
         with:
           name: html-build-artifact
+          path: /tmp/new-docs
 
       - name: Copy HTML files (preserving review directories)
         run: |
-          # Remove old main documentation files but keep review directories
-          find . -maxdepth 1 -not -name '.' -not -name '..' -not -name 'review' -not -name '.git' -not -name '.nojekyll' -not -name 'index.html' -exec rm -rf {} \; 2>/dev/null || true
+          # Remove current files except review directories
+          find . -maxdepth 1 -not -name '.' -not -name '..' -not -name 'review' -not -name '.git' -not -name '.nojekyll' -exec rm -rf {} \; 2>/dev/null || true
           
-          # Copy new documentation files
-          cp -r * . 2>/dev/null || true
+          # Copy new documentation files from temp directory
+          cp -r /tmp/new-docs/* . 2>/dev/null || true
+          
+          # Clean up temp directory
+          rm -rf /tmp/new-docs
+          
+          # List what we have now
+          echo "Files after deployment:"
+          ls -la
           
           # Add all files to git
           git add .
