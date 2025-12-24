@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVIDIA Network Operator Government Ready &mdash; NVIDIA Network Operator v25.10.0 documentation</title>
+  <title>NVIDIA Network Operator Government Ready &mdash; NVIDIA Network Operator v26.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" type="text/css" />
@@ -245,10 +245,10 @@ Update <code class="docutils literal notranslate"><span class="pre">ngc-api-key<
 <li><p>Install the NVIDIA Network Operator with SR-IOV Network Operator.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$  </span>helm install network-operator nvidia/network-operator <span class="se">\</span>
      --namespace nvidia-network-operator <span class="se">\</span>
-     --set sriov-network-operator.images.sriovConfigDaemon<span class="o">=</span>sriov-network-operator-config-daemon-stig-fips <span class="se">\</span>
-     --set sriov-network-operator.imagePullSecrets<span class="o">=</span>ngc-secret <span class="se">\</span>
-     --set sriovNetworkOperator.enabled<span class="o">=</span><span class="nb">true</span>
-<span class="go">     --set nfd.enabled=true</span>
+     --set sriov-network-operator.images.sriovConfigDaemon<span class="o">=</span>nvcr.io/nvidia/mellanox/sriov-network-operator-config-daemon-stig-fips:network-operator-v25.10.0-stig-fips <span class="se">\</span>
+     --set sriov-network-operator.imagePullSecrets<span class="o">={</span>ngc-secret<span class="o">}</span> <span class="se">\</span>
+     --set sriovNetworkOperator.enabled<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+     --set nfd.enabled<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </li>
@@ -288,7 +288,7 @@ Update <code class="docutils literal notranslate"><span class="pre">ngc-api-key<
 
   <div role="contentinfo">
     <p>&#169; Copyright 2025, NVIDIA.
-      <span class="lastupdated">Last updated on Dec 11, 2025.
+      <span class="lastupdated">Last updated on Dec 24, 2025.
       </span></p>
   </div>
 
