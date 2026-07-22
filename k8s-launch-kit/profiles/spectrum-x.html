@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spectrum-X &mdash; NVIDIA Network Operator v26.1.0 documentation</title>
+  <title>Spectrum-X &mdash; NVIDIA Network Operator v26.7.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" type="text/css" />
@@ -63,7 +63,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started-with-openshift.html">Getting Started with Red Hat OpenShift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install-network-operator-gov-ready.html">NVIDIA Network Operator Government Ready</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../nic-conf-operator/nic-configuration-operator.html">NIC Configuration Operator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../dra-sriov-driver/dra-sriov-driver.html">DRA SR-IOV Driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectrum-x/spectrum-x.html">NVIDIA Spectrum-X</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../k8s-launch-kit.html">Configuration Assistance with Kubernetes Launch Kit</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html">Installation</a></li>
@@ -105,7 +105,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../ai-skills.html">AI Skills</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../customizations/customization.html">Customization Options and CRDs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../life-cycle-management.html">Life Cycle Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../kubevirt.html">KubeVirt SR-IOV Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced/advanced.html">Advanced Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses.html">Legal Notices and 3rd Party Licenses</a></li>
@@ -172,14 +171,14 @@
 <li><p><strong>RA2.2</strong> (current) — requires <code class="docutils literal notranslate"><span class="pre">--network-operator-release</span> <span class="pre">26.4</span></code>. Uses <code class="docutils literal notranslate"><span class="pre">SpectrumXRailPoolConfig</span></code> (v1alpha2 CRD).</p></li>
 <li><p><strong>RA2.1</strong> (previous) — requires <code class="docutils literal notranslate"><span class="pre">--network-operator-release</span> <span class="pre">26.1</span></code>. Uses <code class="docutils literal notranslate"><span class="pre">SriovNetworkPoolConfig</span></code> + <code class="docutils literal notranslate"><span class="pre">SriovNetworkNodePolicy</span></code> + <code class="docutils literal notranslate"><span class="pre">OVSNetwork</span></code> with NV-IPAM glue.</p></li>
 </ul>
-<p>For deeper Spectrum-X background, see <a class="reference internal" href="../../nic-conf-operator/spectrum-x-configuration.html"><span class="doc">Spectrum-X Configuration</span></a>.</p>
+<p>For deeper Spectrum-X background, see <a class="reference internal" href="../../spectrum-x/spectrum-x-configuration.html"><span class="doc">Spectrum-X Configuration</span></a>.</p>
 </section>
 <section id="multiplane-modes">
 <h2>Multiplane Modes<a class="headerlink" href="#multiplane-modes" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">--multiplane-mode</span></code> flag selects how planes are mapped onto NICs. <code class="docutils literal notranslate"><span class="pre">--spectrum-x</span></code> takes the SPC-X RA version as its value (<code class="docutils literal notranslate"><span class="pre">RA2.1</span></code> or <code class="docutils literal notranslate"><span class="pre">RA2.2</span></code>); <code class="docutils literal notranslate"><span class="pre">--multiplane-mode</span></code>, <code class="docutils literal notranslate"><span class="pre">--number-of-planes</span></code>, and <code class="docutils literal notranslate"><span class="pre">--network-operator-release</span></code> are all required alongside it. <code class="docutils literal notranslate"><span class="pre">--spectrum-x</span></code> implies ethernet fabric, sriov deployment, and multirail.</p>
 <section id="hwplb">
 <h3>HWPLB<a class="headerlink" href="#hwplb" title="Permalink to this headline"></a></h3>
-<p>Hardware Plane Load Balancing for larger-scale clusters with 2-tier or 3-tier switch topologies:</p>
+<p>Hardware Plane Load Balancing for larger-scale clusters with 2-tier or 3-tier switch topologies. <strong>Tech preview</strong>, supported on ConnectX-8 SuperNIC with RA2.2 only — not part of the validated Spectrum-X Reference Architecture:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>l8k generate --spectrum-x RA2.2 <span class="se">\</span>
     --network-operator-release <span class="m">26</span>.4 <span class="se">\</span>
     --multiplane-mode hwplb --number-of-planes <span class="m">4</span>
@@ -197,7 +196,7 @@
 </section>
 <section id="uniplane">
 <h3>Uniplane<a class="headerlink" href="#uniplane" title="Permalink to this headline"></a></h3>
-<p>Unified plane mode with no plane separation. Use with <code class="docutils literal notranslate"><span class="pre">--number-of-planes</span> <span class="pre">1</span></code>:</p>
+<p>Single-plane physical topology that runs the Spectrum-X multiplane software stack and IP schema — multiple PFs all connect to the <strong>same</strong> ToR/plane (rather than separate planes as in <code class="docutils literal notranslate"><span class="pre">swplb</span></code> / <code class="docutils literal notranslate"><span class="pre">hwplb</span></code>). A specialized configuration for compatibility or regression scenarios; for production, use <code class="docutils literal notranslate"><span class="pre">none</span></code> for Single-Plane or <code class="docutils literal notranslate"><span class="pre">swplb</span></code> / <code class="docutils literal notranslate"><span class="pre">hwplb</span></code> for Dual-Plane / Quad-Plane. Supported on ConnectX-8 SuperNIC only. Use with <code class="docutils literal notranslate"><span class="pre">--number-of-planes</span> <span class="pre">1</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>l8k generate --spectrum-x RA2.2 <span class="se">\</span>
     --network-operator-release <span class="m">26</span>.4 <span class="se">\</span>
     --multiplane-mode uniplane --number-of-planes <span class="m">1</span>
@@ -206,7 +205,7 @@
 </section>
 <section id="none-single-plane">
 <h3>None (Single Plane)<a class="headerlink" href="#none-single-plane" title="Permalink to this headline"></a></h3>
-<p>No multiplane separation. Use with BlueField-3 SuperNIC or simple topologies. <code class="docutils literal notranslate"><span class="pre">none</span></code> requires <code class="docutils literal notranslate"><span class="pre">--number-of-planes</span> <span class="pre">1</span></code>:</p>
+<p>No multiplane separation. Use with ConnectX-7 NIC, BlueField-3 SuperNIC, or simple topologies. <code class="docutils literal notranslate"><span class="pre">none</span></code> requires <code class="docutils literal notranslate"><span class="pre">--number-of-planes</span> <span class="pre">1</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>l8k generate --spectrum-x RA2.2 <span class="se">\</span>
     --network-operator-release <span class="m">26</span>.4 <span class="se">\</span>
     --multiplane-mode none --number-of-planes <span class="m">1</span>
@@ -268,13 +267,23 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>ConnectX-8</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">1023</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">swplb</span></code>, <code class="docutils literal notranslate"><span class="pre">hwplb</span></code>, <code class="docutils literal notranslate"><span class="pre">uniplane</span></code></p></td>
+<tr class="row-even"><td><p>ConnectX-7 NIC</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1021</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">none</span></code> only</p></td>
 </tr>
 <tr class="row-odd"><td><p>BlueField-3 SuperNIC</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">a2dc</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">none</span></code> only</p></td>
+</tr>
+<tr class="row-even"><td><p>ConnectX-8 SuperNIC</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1023</span></code></p></td>
+<td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">none</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">swplb</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">hwplb</span></code> <em>(tech preview)</em></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">uniplane</span></code></div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -293,7 +302,7 @@
 <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="profiles.html"><span class="doc">Deployment Profiles</span></a> — decision matrix</p></li>
-<li><p><a class="reference internal" href="../../nic-conf-operator/spectrum-x-configuration.html"><span class="doc">Spectrum-X Configuration</span></a> — background and CRD details</p></li>
+<li><p><a class="reference internal" href="../../spectrum-x/spectrum-x-configuration.html"><span class="doc">Spectrum-X Configuration</span></a> — background and CRD details</p></li>
 <li><p><a class="reference internal" href="../workflows/generate.html"><span class="doc">Generate Workflow</span></a> — generation details</p></li>
 <li><p><a class="reference internal" href="../reference/config.html"><span class="doc">Configuration Reference</span></a> — <code class="docutils literal notranslate"><span class="pre">spectrumX</span></code> config section</p></li>
 </ul>
@@ -309,7 +318,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2025-2026, NVIDIA.
-      <span class="lastupdated">Last updated on May 21, 2026.
+      <span class="lastupdated">Last updated on Jul 22, 2026.
       </span></p>
   </div>
 
